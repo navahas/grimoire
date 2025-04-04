@@ -4,7 +4,7 @@ This is a growing collection of reusable scripts designed for use with [tmux-buo
 
 These scripts are designed to be used as **custom popup shells** triggered via `custom_buoy` in your `.tmux.conf`.
 
-![Preview](https://raw.githubusercontent.com/navahas/tmux-buoyshell/assets/images/main.png)
+![Preview](https://raw.githubusercontent.com/navahas/custom-buoys/refs/heads/assets/images/custom-buoy.png)
 
 ## How to Use
 
