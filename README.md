@@ -26,7 +26,7 @@ By default, tmux-buoyshell uses `~/.config/custom-buoys` as the script base path
 
 If you want to explore all scripts:
 
-```bash
+```
 git clone https://github.com/navahas/custom-buoys.git
 mkdir -p ~/.config/custom-buoys
 cp custom-buoys/utils/*.sh ~/.config/custom-buoys/
@@ -60,10 +60,10 @@ How to Contribute
 4. Add a one-liner explanation as a comment at the top of the script
 5. Submit a pull request with a brief description
 
-### Categories (WIP)
+#### Categories (WIP)
 
 We’ll eventually organize these scripts by purpose:
-	•	utils/: general-purpose helpers (e.g. smart-build.sh)
-	•	dev/: language/dev-related scripts
-	•	ops/: monitoring/logs/system utilities
-	•	fun/: personal, creative, or playful buoys
+- utils/: general-purpose helpers (e.g. smart-build.sh)
+- dev/: language/dev-related scripts
+- ops/: monitoring/logs/system utilities
+- fun/: personal, creative, or playful buoys
