@@ -14,7 +14,7 @@ You can either manually copy the scripts you want or clone this repo to pick and
 
 Just copy the scripts you want into your custom buoys folder:
 
-```bash
+```
 mkdir -p ~/.config/custom-buoys
 curl -o ~/.config/custom-buoys/smart-build.sh https://raw.githubusercontent.com/navahas/custom-buoys/main/utils/smart-build.sh
 chmod +x ~/.config/custom-buoys/smart-build.sh
@@ -36,7 +36,7 @@ chmod +x ~/.config/custom-buoys/*.sh
 Then in .tmux.conf
 
 ```tmux
-bind-key -T prefix B run-shell "custom_buoy standard build 'buoys/smart-build.sh' --replay"
+bind-key -T prefix b run-shell "custom_buoy standard build 'buoys/smart-build.sh' --replay"
 ```
 If the script starts with buoys/, will resolve to @buoyshell-buoyspath (default: `~/.config/custom-buoys`).
 
