@@ -27,3 +27,7 @@ else
   echo "[X] No known build system found in $(pwd)"
   exit 1
 fi
+
+# An optional end notification using buyshell
+msg="echo -e '\n\n\n\n         🚀  \033[1;32mBuild Finished Successfully\033[0m\n\n\n\n'; read -p 'Press Enter to close...'; tmux detach-client"
+tmux run-shell "custom_buoy ephemeral notification \"$msg\""
