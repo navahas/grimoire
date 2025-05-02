@@ -1,10 +1,9 @@
-# Custom Buoys
+# Grimoire
 
-This is a growing collection of reusable scripts designed for use with [tmux-buoyshell](https://github.com/navahas/tmux-buoyshell).
+![Preview](https://raw.githubusercontent.com/navahas/grimoire/refs/heads/assets/images/grimoire.png)
 
-These scripts are designed to be used as **custom popup shells** triggered via `custom_buoy` in your `.tmux.conf`.
-
-![Preview](https://raw.githubusercontent.com/navahas/custom-buoys/refs/heads/assets/images/custom-buoy.png)
+This is a growing collection of reusable scripts designed for use with [tmux-grimoire](https://github.com/navahas/tmux-grimoire).
+These scripts are designed to be used as **custom popup shells** triggered via `custom_shpell` in your `.tmux.conf`.
 
 ## How to Use
 
@@ -12,39 +11,39 @@ You can either manually copy the scripts you want or clone this repo to pick and
 
 ### Option 1: Manual Copy
 
-Just copy the scripts you want into your custom buoys folder:
+Just copy the scripts you want into your custom grimoire folder:
 
 ```
-mkdir -p ~/.config/custom-buoys
-curl -o ~/.config/custom-buoys/smart-build.sh https://raw.githubusercontent.com/navahas/custom-buoys/main/utils/smart-build.sh
-chmod +x ~/.config/custom-buoys/smart-build.sh
+mkdir -p ~/.config/grimoire
+curl -o ~/.config/grimoire/smart-build.sh https://raw.githubusercontent.com/navahas/grimoire/main/utils/smart-build.sh
+chmod +x ~/.config/grimoire/smart-build.sh
 ```
 
-By default, tmux-buoyshell uses `~/.config/custom-buoys` as the script base path.
+By default, tmux-grimoire uses `~/.config/grimoire` as the script base path.
 
 ### Option 2: Clone & Copy Locally
 
 If you want to explore all scripts:
 
 ```
-git clone https://github.com/navahas/custom-buoys.git
-mkdir -p ~/.config/custom-buoys
-cp custom-buoys/utils/*.sh ~/.config/custom-buoys/
-chmod +x ~/.config/custom-buoys/*.sh
+git clone https://github.com/navahas/grimoire.git
+mkdir -p ~/.config/grimoire
+cp grimoire/utils/*.sh ~/.config/grimoire/
+chmod +x ~/.config/grimoire/*.sh
 ```
 
 Then in .tmux.conf
 
 ```tmux
-bind-key -T prefix b run-shell "custom_buoy standard build 'buoys/smart-build.sh' --replay"
+bind-key -T prefix b run-shell "custom_shpell standard build 'shpell/smart-build.sh' --replay"
 ```
-If the script starts with buoys/, will resolve to @buoyshell-buoyspath (default: `~/.config/custom-buoys`).
+If the script starts with shpells/, will resolve to @grimoire-path (default: `~/.config/grimoire`).
 
 ---
 
 ## Contributing
 
-Have a handy shell script you use with tmux-buoyshell?
+Have a handy shell script you use with tmux-grimoire?
 
 We’d love to include it here!
 
@@ -66,4 +65,4 @@ We’ll eventually organize these scripts by purpose:
 - utils/: general-purpose helpers (e.g. smart-build.sh)
 - dev/: language/dev-related scripts
 - ops/: monitoring/logs/system utilities
-- fun/: personal, creative, or playful buoys
+- fun/: personal, creative, or playful shpells
