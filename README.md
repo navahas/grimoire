@@ -1,68 +1,99 @@
-# Grimoire
-
 ![Preview](https://raw.githubusercontent.com/navahas/grimoire/refs/heads/assets/images/grimoire.png)
 
-This is a growing collection of reusable scripts designed for use with [tmux-grimoire](https://github.com/navahas/tmux-grimoire).
+# Grimoire
+
+This is a growing collection of reusable scripts designed for use with 
 These scripts are designed to be used as **custom popup shells** triggered via `custom_shpell` in your `.tmux.conf`.
 
+A curated collection of reusable shell scripts ("shpells") for enhancing your workflows. Use them as summonable popup shells in [tmux-grimoire](https://github.com/navahas/tmux-grimoire) or integrate them directly into your shell via aliases or by adding them to your PATH.
+
+--- 
 ## How to Use
 
-You can either manually copy the scripts you want or clone this repo to pick and choose from your local copy.
+Choose your preferred setup:
 
-### Option 1: Manual Copy
+### For tmux-grimoire
 
-Just copy the scripts you want into your custom grimoire folder:
+Scripts are loaded from your `@grimoire-path` (default: `~/.config/grimoire`).
 
-```
-mkdir -p ~/.config/grimoire
-curl -o ~/.config/grimoire/smart-build.sh https://raw.githubusercontent.com/navahas/grimoire/main/utils/smart-build.sh
-chmod +x ~/.config/grimoire/smart-build.sh
-```
+1. Clone repo
+   ```bash
+   git clone https://github.com/navahas/grimoire.git ~/.config/grimoire
+   ```
+2. Make executable
+   ```bash
+   chmod +x ~/.config/grimoire/**/*.sh
+   ```
+3. Bind in `~/.tmux.conf`
+   ```tmux
+   bind-key -T prefix b \
+     run-shell "custom_shpell standard build 'shpells/smart-build.sh' --replay"
+   ```
 
-By default, tmux-grimoire uses `~/.config/grimoire` as the script base path.
+### Standalone (Shell/CLI)
 
-### Option 2: Clone & Copy Locally
+1. Clone or download to a directory on your PATH, e.g.:
+   ```bash
+   git clone https://github.com/navahas/grimoire.git ~/grimoire
+   mv ~/grimoire/utils ~/grimoire/dev ~/grimoire/ops ~/grimoire/fun ~/scripts  # or your chosen location
+   ```
+2. Add to PATH (add to `~/.bashrc` - `~/.zshrc` etc.):
+   ```bash
+   export PATH="$HOME/scripts:$PATH"
+   ```
+3. Run scripts directly:
+   ```bash
+   smart-build.sh   # equivalent to shpells/smart-build.sh
+   ```
 
-If you want to explore all scripts:
+---
 
-```
-git clone https://github.com/navahas/grimoire.git
-mkdir -p ~/.config/grimoire
-cp grimoire/utils/*.sh ~/.config/grimoire/
-chmod +x ~/.config/grimoire/*.sh
-```
+## Usage Examples
 
-Then in .tmux.conf
+### tmux-grimoire
 
+Trigger as a popup shell:
 ```tmux
-bind-key -T prefix b run-shell "custom_shpell standard build 'shpell/smart-build.sh' --replay"
+bind-key -T prefix S \
+  run-shell "custom_shpell standard smart-build 'shpells/smart-build.sh' --replay"
 ```
-If the script starts with shpells/, will resolve to @grimoire-path (default: `~/.config/grimoire`).
+
+### Shell alias
+
+Add to your shell config:
+```bash
+alias build="smart-build.sh"
+```
+Then run:
+```bash
+build
+```
 
 ---
 
 ## Contributing
 
-Have a handy shell script you use with tmux-grimoire?
+Contributions welcome! Please:
 
-We’d love to include it here!
-
-Guidelines
-- Scripts should be self-contained .sh files.
-- Use clear names and add a short comment at the top explaining what it does.
-- Keep dependencies minimal or document them clearly inside the script.
-
-How to Contribute
 1. Fork this repo
-2. Add your script in the appropriate folder (e.g. utils/)
-3. Make it executable: `chmod +x your-script.sh`
-4. Add a one-liner explanation as a comment at the top of the script
-5. Submit a pull request with a brief description
+2. Add a self-contained `.sh` script under a category folder
+3. Add a one-line comment at the top explaining its purpose
+4. `chmod +x your-script.sh`
+5. Submit a PR with a brief description
 
-#### Categories (WIP)
+Guidelines:
 
-We’ll eventually organize these scripts by purpose:
-- utils/: general-purpose helpers (e.g. smart-build.sh)
-- dev/: language/dev-related scripts
-- ops/: monitoring/logs/system utilities
-- fun/: personal, creative, or playful shpells
+- Single-file scripts
+- Clear naming & minimal dependencies
+
+---
+
+## Categories (WIP)
+
+- `utils/` — general helpers (e.g. `smart-build.sh`)
+- `dev/`   — development & build tools
+- `ops/`   — system monitors, logs
+- `fun/`   — playful or personal scripts
+
+---
+Made with ✨ by [navahas](https://github.com/navahas)
